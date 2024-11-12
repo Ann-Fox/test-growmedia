@@ -10,16 +10,22 @@ body, select {
 }
 
 .main {
-    margin: 0 auto;
+    margin: 5% auto;
     /* padding: 15px 10px; */
     width: 100%;
-    max-width: 580px;
-
+    max-width: 700px;
 }
 
 .container {
     /* background-color: #53f075; */
     padding: 25px 20px;
+}
+
+@media(min-width: 600px) {
+    .form__sections {
+        display: flex;
+        justify-content: space-around;
+    }
 }
 
 label {
@@ -46,6 +52,7 @@ form {
     border: 1px solid #dbdce1;
     border-radius: 8px;
     padding: 20px;
+    background-color: rgb(0, 161, 255, 0.08);
 }
 
 #checkbox {
@@ -64,8 +71,10 @@ button {
     text-transform: uppercase;
 }
 
-button:hover {
-    background-color: #53f075;
+button:active {
+    background-color: #5360f077;
+    /* border-radius: 8px;
+    border: none; */
 }
 
 .form__title {
@@ -94,21 +103,26 @@ button:hover {
 }
 
 .error {
-    color: crimson;
+    color: rgb(245, 109, 109);
     margin: 0;
-
     display: none;
-
     /* margin-top: 5px; */
 }
 
+.error-border {
+    border: 1px solid rgb(245, 109, 109);
+}
+
+.error-text {
+    color: red;
+}
 #modal {
     display: none;
     background-color: #5361f0;
     margin: 0 auto;
-text-align: center;
-color: #fff;
-padding: 20px;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
     /* width: 500px; */
     border-radius: 8px;
 }

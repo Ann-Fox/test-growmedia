@@ -11,63 +11,69 @@
 <body>
     <main class="main">
         <div class="container">
-            <form name="regForm">
-                <section>
-                    <h2 class="form__title">Личная информация</h2>
-                    <div>
-                        <div class="form__group">
-                            <label for="username">Имя: <span title="required">*</span>
-                            </label>
-                            <input id="username" type="text" name="username" />
+            <form name="regForm" action="" class="js-form">
+                <div class="form__sections">
+                    <section>
+                        <h2 class="form__title">Личная информация</h2>
+                        <div>
+                            <div class="form__group">
+                                <label for="username">Имя: <span title="required">*</span>
+                                </label>
+                                <input id="username" type="text" name="username" class="js-input"/>
+    
+                                <p class="error" name="length">Поле не должно быть пустым</p>
+                            </div>
+                            <div class="form__group">
+                                <label for="email">Email: <span title="required">*</span>
+                                </label>
+                                <input id="email" type="text" name="email" class="js-input"/>
+    
+                                <p class="error" name="length">Поле не должно быть пустым</p>
+                                <p class="error" name="emailError">Введите почту правильно</p>
+    
+                            </div>
+                            <div class="form__group">
+                                <label for="usertel">Телефон: <span title="required">*</span>
+                                </label>
+                                <input id="usertel" type="tel" name="usertel" class="js-input"/>
+    
+                                <p class="error" name="length">Поле не должно быть пустым</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h2 class="form__title"> Информация о бизнесе</h2>
+                        <div>
+                            <div class="form__group">
+                                <label for="expected-turnover">Ожидаемый оборот: <span title="required">*</span>
+                                </label>
+                                <input id="expected-turnover" type="number" name="expected-turnover" class="js-input"/>
 
-                            <p class="error" name="length">Поле не должно быть пустым</p>
-                        </div>
-                        <div class="form__group">
-                            <label for="email">Email: <span title="required">*</span>
-                            </label>
-                            <input id="email" type="text" name="email" />
+                                <p class="error" name="length">Поле не должно быть пустым</p>
 
-                            <p class="error" name="length">Поле не должно быть пустым</p>
-                            <p class="error" name="emailError">Введите почту правильно</p>
-
+                            </div>
+                            <div class="form__group select">
+                                <label for="industry">Выбор индустрии: <span title="required">*</span>
+                                </label>
+                                <select name="industry" id="industry-select" class="js-input">
+                                    <option value="">Выберите подходящий вариант</option>
+                                    <option value="industry-one">Индустрия 1</option>
+                                    <option value="industry-two">Индустрия 2</option>
+                                    <option value="industry-three">Индустрия 3</option>
+                                </select>
+                            </div>
+                            <div class="form__checkbox">
+                                <input id="checkbox" type="checkbox" name="checkbox" class="js-checkbox"/>
+                                <label for="checkbox" name="empty" class="js-checkbox-lable">Я принимаю правила
+                                    сервиса<span title="required">*</span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="form__group">
-                            <label for="usertel">Телефон: <span title="required">*</span>
-                            </label>
-                            <input id="usertel" type="tel" name="usertel" />
-
-                            <p class="error" name="length">Поле не должно быть пустым</p>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <h2 class="form__title"> Информация о бизнесе</h2>
-                    <div>
-                        <div class="form__group">
-                            <label for="expected-turnover">Ожидаемый оборот: <span title="required">*</span>
-                            </label>
-                            <input id="expected-turnover" type="number" name="expected-turnover" />
-                        </div>
-                        <div class="form__group select">
-                            <label for="industry">Выбор индустрии: <span title="required">*</span>
-                            </label>
-                            <select name="industry" id="industry-select">
-                                <option value="">Выберите подходящий вариант</option>
-                                <option value="industry-one">Индустрия 1</option>
-                                <option value="industry-two">Индустрия 2</option>
-                                <option value="industry-three">Индустрия 3</option>
-                            </select>
-                        </div>
-                        <div class="form__checkbox">
-                            <input id="checkbox" type="checkbox" name="checkbox" />
-                            <label for="checkbox">Я принимаю правила
-                                сервиса<span title="required">*</span>
-                            </label>
-                        </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
+                
                 <div class="btn">
-                    <button>отправить</button>
+                    <button type="submit">отправить</button>
                 </div>
             </form>
 

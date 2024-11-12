@@ -5,18 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grow Media</title>
-    <link rel="stylesheet" href="styles.css">
-
+    <link rel="stylesheet" lang="cscc" href="styles.css">
 </head>
 
 <body>
     <main class="main">
         <div class="container">
-            <form action="" method="post">
+            <form name="regForm">
+                <section>
+                    <h2 class="form__title">Личная информация</h2>
+                    <div>
+                        <div class="form__group">
+                            <label for="username">Имя: <span title="required">*</span>
+                            </label>
+                            <input id="username" type="text" name="username" />
 
+                            <p class="error" name="length">Поле не должно быть пустым</p>
+                        </div>
+                        <div class="form__group">
+                            <label for="email">Email: <span title="required">*</span>
+                            </label>
+                            <input id="email" type="text" name="email" />
+
+                            <p class="error" name="length">Поле не должно быть пустым</p>
+                            <p class="error" name="emailError">Введите почту правильно</p>
+
+                        </div>
+                        <div class="form__group">
+                            <label for="usertel">Телефон: <span title="required">*</span>
+                            </label>
+                            <input id="usertel" type="tel" name="usertel" />
+
+                            <p class="error" name="length">Поле не должно быть пустым</p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2 class="form__title"> Информация о бизнесе</h2>
+                    <div>
+                        <div class="form__group">
+                            <label for="expected-turnover">Ожидаемый оборот: <span title="required">*</span>
+                            </label>
+                            <input id="expected-turnover" type="number" name="expected-turnover" />
+                        </div>
+                        <div class="form__group select">
+                            <label for="industry">Выбор индустрии: <span title="required">*</span>
+                            </label>
+                            <select name="industry" id="industry-select">
+                                <option value="">Выберите подходящий вариант</option>
+                                <option value="industry-one">Индустрия 1</option>
+                                <option value="industry-two">Индустрия 2</option>
+                                <option value="industry-three">Индустрия 3</option>
+                            </select>
+                        </div>
+                        <div class="form__checkbox">
+                            <input id="checkbox" type="checkbox" name="checkbox" />
+                            <label for="checkbox">Я принимаю правила
+                                сервиса<span title="required">*</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+                <div class="btn">
+                    <button>отправить</button>
+                </div>
             </form>
+
         </div>
     </main>
+    <div id="modal">
+        <h1>Спасибо! Ваша заявка принята</h1>
+    </div>
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -12,6 +12,9 @@
     <main class="main">
         <div class="container">
             <form action="" class="js-form">
+                <div class="modal js-modal">
+                    <h1>Спасибо! Ваша заявка принята</h1>
+                </div>
                 <div class="form__sections">
                     <section>
                         <h2 class="form__title">Личная информация</h2>
@@ -19,25 +22,26 @@
                             <div class="form__group">
                                 <label for="username">Имя: <span title="required">*</span>
                                 </label>
-                                <input type="text" name="username" class="input js-input"/>
-    
+                                <input type="text" name="username" class="input js-input" />
+
                                 <p class="error-text" name="length">Поле не должно быть пустым</p>
                             </div>
                             <div class="form__group">
                                 <label for="email">Email: <span title="required">*</span>
                                 </label>
-                                <input type="email" name="email" class="input js-input js-input-email"/>
-    
+                                <input type="email" name="email" class="input js-input js-input-email" />
+
                                 <p class="error-text" name="length">Поле не должно быть пустым</p>
                                 <p class="error-text" name="emailError">Email должен содержать знак “@”</p>
-    
+
                             </div>
                             <div class="form__group">
                                 <label for="usertel">Телефон: <span title="required">*</span>
                                 </label>
-                                <input type="tel" name="usertel" class="input js-input js-input-phone"/>
-    
+                                <input value="" type="tel" name="usertel" class="input js-input js-input-phone tel" />
+
                                 <p class="error-text" name="length">Поле не должно быть пустым</p>
+                                <p class="error-text" name="mask">Введите номер телефона полностью</p>
                             </div>
                         </div>
                     </section>
@@ -47,7 +51,7 @@
                             <div class="form__group">
                                 <label for="expected-turnover">Ожидаемый оборот: <span title="required">*</span>
                                 </label>
-                                <input type="number" name="expected-turnover" class="input js-input"/>
+                                <input type="number" name="expected-turnover" class="input js-input js-input-number" />
 
                                 <p class="error-text" name="length">Поле не должно быть пустым</p>
 
@@ -55,7 +59,7 @@
                             <div class="form__group select">
                                 <label for="industry">Выбор индустрии: <span title="required">*</span>
                                 </label>
-                                <select name="industry" class="input js-input-select">
+                                <select name="industry" class="input js-input js-input-select">
                                     <option value="">Выберите подходящий вариант</option>
                                     <option value="industry-one">Индустрия 1</option>
                                     <option value="industry-two">Индустрия 2</option>
@@ -63,7 +67,7 @@
                                 </select>
                             </div>
                             <div class="form__checkbox">
-                                <input type="checkbox" class="checkbox__input js-input-checkbox " id="rule_check"/>
+                                <input type="checkbox" class="checkbox__input js-input-checkbox " id="rule_check" />
                                 <label for="rule_check" class="checkbox__lable js-checkbox-lable">Я принимаю правила
                                     сервиса<span title="required">*</span>
                                 </label>
@@ -71,17 +75,13 @@
                         </div>
                     </section>
                 </div>
-                
+
                 <div class="btn">
                     <button type="submit">отправить</button>
                 </div>
             </form>
-
         </div>
     </main>
-    <div id="modal">
-        <h1>Спасибо! Ваша заявка принята</h1>
-    </div>
     <script src="script.js"></script>
 </body>
 

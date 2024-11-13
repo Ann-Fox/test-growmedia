@@ -1,64 +1,54 @@
 let form = document.querySelector('.js-form'),
-    input = document.querySelectorAll('.js-input'),
-    select = document.querySelector('.js-select'),
-    checkbox = document.querySelector('js-checkbox')
-    checkboxLable = document.querySelector('.js-checkbox-lable')
+  formInputs = document.querySelectorAll('.js-input'),
+  inputEmail = document.querySelector('.js-input-email'),
+  inputPhone = document.querySelector('.js-input-phone'),
+  select = document.querySelector('.js-input-select'),
+  inputCheckbox = document.querySelector('.js-input-checkbox'),
+  lableCheckbox = document.querySelector('.js-checkbox-lable')
 
-    form.onsubmit = function (event) {
-        event.preventDefault();
+function validateEmail(email) {
+  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
 
-        //Проверка на пустое поле
-        input.forEach(function (input) {
-            if ((input.value === '')) {
-                console.log('error');
+form.onsubmit = function () {
+  console.log('works');
+  let emailVal = inputEmail.value;
+  let phoneVal = inputPhone.value;
+  emptyInputs = Array.from(formInputs).filter(input => input.value === '')
 
-              input.classList.add('error-border');
-            //   input.parentElement.children.namedItem('length').style.display = 'block'
-            } else {
-              input.classList.remove('error-border');
-                // input.parentElement.children.namedItem('length').style.display = 'none'
-            }
-        })
-
-        // if (select.value === '0') {
-        //     select.classList.add('error-border');
-        //     console.log('error');
-
-        //     // return false;
-        //   } else {
-        //     select.classList.remove('error-border');
-        //   }
-          console.log('error');
-
-          if(!checkbox.checked) {
-            // checkboxLable.classList.add('error-text');
-            checkbox.parentElement.children.namedItem('empty').style.color = 'red'
-
-            checkboxLable.classList.add('error-text');
-console.log('error');
-            return false;
-          } else {
-            checkboxLable.classList.remove('error-text')
-          }
-          event.target.reset();
-
+  //Проверка на пустое поле
+  formInputs.forEach(function (input) {
+    if ((input.value === '')) {
+      console.log('err');
+      input.classList.add('error');
+      input.parentElement.children.namedItem('length').style.display = 'block'
+    } else {
+      input.classList.remove('error');
+      input.parentElement.children.namedItem('length').style.display = 'none'
     }
-// const regForm = document.forms.regForm
+  });
 
-// const userName = regForm.username
-// const userEmail = regForm.email
-// const userTel = regForm.usertel
+  if (emptyInputs.length !== 0) {
+    console.log('inputs not filled');
+    return false;
+  }
 
-// regForm.addEventListener('submit', (e) => {
-//     e.preventDefault();
-    
-//     //name validation
-//     const userNameErrorMessages = userName.parentElement.children
-//     const userNameValue = userName.value
+  //проверка email не полная валидация
+  if (!validateEmail(emailVal)) {
+    console.log('not validate email');
+    inputEmail.classList.add('error');
+    return false;
+  } else {
+    inputEmail.classList.remove('error');
+  }
 
-//     if(userNameValue.length >= 1) {
-//         userNameErrorMessages.namedItem('length').style.display = 'none'
-//     } else {
-//  userNameErrorMessages.namedItem('length').style.display = 'block'
-//     }
-// })
+  //проверка чекбокса
+  if (!inputCheckbox.checked) {
+    console.log('checkbox not checked');
+    lableCheckbox.classList.add('error');
+    return false;
+  } else {
+    lableCheckbox.classList.remove('error');
+  }
+}

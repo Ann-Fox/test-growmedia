@@ -11,7 +11,7 @@
 <body>
     <main class="main">
         <div class="container">
-            <form action="" class="js-form">
+            <form id="form2" action="" class="js-form">
                 <div class="modal js-modal">
                     <h1>Спасибо! Ваша заявка принята</h1>
                 </div>
@@ -23,7 +23,6 @@
                                 <label for="username">Имя: <span title="required">*</span>
                                 </label>
                                 <input type="text" name="username" class="input js-input" />
-
                                 <p class="error-text" name="length">Поле не должно быть пустым</p>
                             </div>
                             <div class="form__group">
@@ -51,7 +50,7 @@
                             <div class="form__group">
                                 <label for="expected-turnover">Ожидаемый оборот: <span title="required">*</span>
                                 </label>
-                                <input type="number" name="expected-turnover" class="input js-input js-input-number" />
+                                <input type="number" step="any" min="0" name="expected-turnover" class="input js-input js-input-number" />
 
                                 <p class="error-text" name="length">Поле не должно быть пустым</p>
 

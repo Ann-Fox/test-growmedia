@@ -2,12 +2,9 @@ let form = document.querySelector(".js-form"),
     formInputs = document.querySelectorAll(".js-input"),
     inputEmail = document.querySelector(".js-input-email"),
     inputPhone = document.querySelector(".js-input-phone"),
-    inputNumber = document.querySelector(".js-input-number"),
     inputCheckbox = document.querySelector(".js-input-checkbox"),
     lableCheckbox = document.querySelector(".js-checkbox-lable"),
     modalView = document.querySelector(".js-modal");
-
-let errorText = document.querySelectorAll(".error-text");
 
 function validateEmail(email) {
     let re =
@@ -20,70 +17,45 @@ function validatePhone(phone) {
     return regex.test(phone);
 }
 
-function validateNumber(number) {
-    let regex = /^(0|-?[1-9]\d*)(\.[0-9]{1,2})?$/;
-    return regex.test(number);
-}
-
 form.onsubmit = function (event) {
     event.preventDefault();
 
     let emailVal = inputEmail.value;
     let phoneVal = inputPhone.value;
-    let numberVal = inputNumber.value;
 
     emptyInputs = Array.from(formInputs).filter((input) => input.value === "");
 
     //Проверка на пустое поле
-    formInputs.forEach(function (input, errorText) {
+    formInputs.forEach(function (input) {
         if (input.value === "") {
-            console.log("err");
             input.classList.add("error");
-            errorText.classList.add("visible");
         } else {
             input.classList.remove("error");
-            errorText.classList.remove("visible");
         }
     });
 
     //проверка email
     if (!validateEmail(emailVal)) {
-        console.log("not validate email");
         inputEmail.classList.add("error");
-        errorText.classList.add("visible");
-
         return false;
     } else {
         inputEmail.classList.remove("error");
-        errorText.classList.remove("visible");
     }
 
     //проверка номера телефона
     if (!validatePhone(phoneVal)) {
-        console.log("not validate phone");
         inputPhone.classList.add("error");
         return false;
     } else {
         inputPhone.classList.remove("error");
     }
 
-    // проверка числа
-    // if (!validateNumber(numberVal)) {
-    //   console.log('not validate Number');
-    //   numberVal.classList.add('error');
-    //    return false;
-    // } else {
-    //   numberVal.classList.remove('error');
-    // }
-
     if (emptyInputs.length !== 0) {
-        console.log("inputs not filled");
         return false;
     }
 
     //проверка чекбокса
     if (!inputCheckbox.checked) {
-        console.log("checkbox not checked");
         lableCheckbox.classList.add("error");
         return false;
     } else {

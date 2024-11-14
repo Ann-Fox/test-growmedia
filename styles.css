@@ -52,7 +52,7 @@ select:focus-visible {
 }
 
 .input.error {
-    border-color: red;
+    border-color: rgb(245, 109, 109);
 }
 
 form {
